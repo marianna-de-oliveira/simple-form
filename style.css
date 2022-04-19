@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+	/* #e6aace #f0f4ef #090c08 #540d6e #38a3a5 #a00060 */
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #e6aace;
+}
+
+.container {
+	background: #f0f4ef;
+	position: relative;
+	max-width: 900px;
+	width: 100%;
+	padding: 30px;
+	margin: 0 15px;
+	border-radius: 5px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container header {
+	font-size: 20px;
+	font-weight: 500;
+	color: #333;
+	position: relative;
+}
+
+.container header::before {
+	content: "";
+	position: absolute;
+	bottom: -2px;
+	width: 27px;
+	height: 3px;
+	background: #e6aace;
+}
+
+.container form {
+	position: relative;
+	margin-top: 16px;
+	min-height: 490px;
+	background: #f0f4ef;
+	overflow: hidden;
+}
+
+.container form .form{
+	position: absolute;
+	background-color: #f0f4ef;
+	transition: 0.3s ease;
+}
+.container form .form.second{
+	opacity: 0;
+	pointer-events: none;
+	transform: translateX(100%)
+}
+
+form.secActive .form.second{
+	opacity: 1;
+	pointer-events: auto;
+	transform: translateX(0)
+}
+
+form.setActive .form.first{
+	opacity: 0;
+	pointer-events: none;
+	transform: translateX(-100%)
+}
+
+
+.container form .title {
+	display: block;
+	margin-bottom: 18px;
+	font-size: 16px;
+	font-weight: 400;
+	margin: 6px 0;
+	color: #333;
+}
+
+.container form .fields {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+form .fields .input-field {
+	display: flex;
+	flex-direction: column;
+	width: calc(
+		100% / 3 - 15px
+	); /*divide 100% do container por 3 e põe margem de 15px entre os elementos*/
+	margin: 4px 0;
+}
+.input-field label {
+	font-size: 12px;
+	font-weight: 500;
+	color: #2e2e2e;
+}
+
+.input-field input,
+.input-field select {
+	padding: 0 15px;
+	margin: 8px 0;
+	height: 40px;
+	outline: none;
+	font-size: 14px;
+	font-weight: 400;
+	border-radius: 5px;
+	border: 1px solid #aaa;
+	color: #333;
+}
+
+.input-field input:is(:focus, :valid) {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+.input-field input[type="date"] {
+	color: #707070;
+}
+
+.input-field input[type="date"]:valid {
+	color: #333;
+}
+
+.container form button, .backBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	max-width: 200px;
+	width: 100%;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	color: #2e2e2e;
+	margin: 24px;
+	background: #e6aace;
+	transition:  all 0.3s linear;
+	cursor: pointer;
+}
+
+.container form button,
+.container form ,.backBtn{
+	font-size: 14px;
+	font-weight: 400;
+}
+
+form button:hover{
+	background: #a00060;
+	color: #fff;
+}
+
+form button i, 
+form .backBtn i{
+	margin: 0 5px;
+}
+
+form .buttons{
+	display: flex;
+	align-items: center;
+}
+form .buttons button, .backBtn{
+	margin-right: 14px;
+}
+
+@media (max-width: 768px){
+	.container form{
+		overflow-y: scroll;
+	}
+
+	.container form::-webkit-scrollbar{
+		display: none;
+	}
+
+	form .fields .input-field{
+		width: calc(100% / 2 - 15px);
+	}
+
+}
+
+@media (max-width: 550px){
+	form .fields .input-field{
+		width: 100%;
+	}
+}
